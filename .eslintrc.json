@@ -1,9 +1,9 @@
 {
+  "root": true,
+  "env": { "browser": true, "es2020": true },
   "extends": [
-    "react-app",
+    "eslint:recommended",
     "react-app/jest",
-    "airbnb",
-    "airbnb-typescript",
     "plugin:import/typescript",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -14,10 +14,44 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react-refresh",
+    "prettier",
+    "import",
+    "simple-import-sort",
+    "sonarjs",
+    "react-hooks",
+    "etc"
+  ],
+  "rules": {
+    "react-refresh/only-export-components": [
+      "warn",
+      { "allowConstantExport": true }
+    ],
+    "import/no-unresolved": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "sonarjs/cognitive-complexity": "off",
+    "sonarjs/no-identical-expressions": "error",
+    "sonarjs/non-existent-operator": "error",
+    "sonarjs/no-use-of-empty-return-value": "error",
+    "sonarjs/no-identical-conditions": "error",
+    "sonarjs/no-extra-arguments": "error",
+    "sonarjs/no-useless-catch": "error",
+    "sonarjs/prefer-immediate-return": "error",
+    "etc/no-commented-out-code": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "sonarjs/no-duplicate-string": "off",
+    "no-console": "warn",
+    "eslint-plugin-import/prefer-default-export": "off",
+    "import/prefer-default-export": "off"
+  },
   "globals": {
     "React": true,
     "ReactDOM": true,
-    "ReactRouterDOM": true 
+    "ReactRouterDOM": true
   }
 }
