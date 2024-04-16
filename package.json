@@ -1,0 +1,69 @@
+{
+  "name": "dine-wise",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.83",
+    "@types/react": "^18.2.58",
+    "@types/react-dom": "^18.2.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "start:local": "cp .env.local .env && npm start",
+    "start:qa": "env-cmd -f .env.local.qa react-scripts start",
+    "start:production": "env-cmd -f .env.local.production react-scripts start",
+    "build:local": "cp .env.local .env && npm run build",
+    "build:qa": "cp .env.local.qa .env && npm run build",
+    "build:production": "cp .env.local.production .env && npm run build",
+    "release:patch": "npm version patch && npm run extract",
+    "release:minor": "npm version minor && npm run extract",
+    "release:major": "npm version major && npm run extract",
+    "lint": "eslit .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "extract": "node -e \"console.log('export const VERSION = ' + JSON.stringify(require('./package.json').version) + ';')\" > src/version.ts && yarn format:fix && git add . && git commit -m 'build: version update' && git push --tags",
+    "prepare": "husky install"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5",
+    "husky": "^8.0.0"
+  }
+}
