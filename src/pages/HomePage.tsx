@@ -1,10 +1,11 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-// Import your wallpaper image
 import home from '../assets/home.jpeg'
+import { Colors } from '../theme/colors'
 
-function Home() {
+function HomePage() {
   return (
     <Box
       sx={{
@@ -16,7 +17,7 @@ function Home() {
         backgroundImage: `url(${home})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: Colors.backgroundPrimary,
       }}
     >
       <Box
@@ -36,24 +37,27 @@ function Home() {
         </Typography>
         <Typography
           variant="body1"
-          align="left" // Align text to the left
+          align="left"
           gutterBottom
           style={{ color: 'white' }}
         >
           Discover the world of cuisine with Dine Wise. Our advanced food
-          recognition system helps you identify dishes instantly.
+          recognition system helps you identify dishes instantly out of 101
+          different varieties of categories.
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{ marginTop: '20px' }}
-        >
-          Get Started
-        </Button>
+        <Link to="/predict" style={{ textDecoration: 'none' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            sx={{ marginTop: '20px' }}
+          >
+            Get Started
+          </Button>
+        </Link>
       </Box>
     </Box>
   )
 }
 
-export default Home
+export default HomePage
