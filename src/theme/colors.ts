@@ -10,6 +10,8 @@ export const Colors = {
 
   boxShadowPrimary: '#0000001a',
 
+  borderColorPrimary: '#f6f8fa7a',
+
   accentPrimary: '#007bff',
   accentSecondary: '#6c757d',
 

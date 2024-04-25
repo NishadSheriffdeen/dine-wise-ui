@@ -45,14 +45,18 @@ function HomePage() {
           recognition system helps you identify dishes instantly out of 101
           different varieties of categories.
         </Typography>
-        <Link to="/predict" style={{ textDecoration: 'none' }}>
+        <Link to="/demo" style={{ textDecoration: 'none' }}>
           <Button
-            variant="contained"
             color="primary"
             size="large"
-            sx={{ marginTop: '20px' }}
+            sx={{
+              marginTop: '20px',
+              color: Colors.info,
+              border: `1px solid ${Colors.borderColorPrimary}`,
+              fontWeight: 'bold',
+            }}
           >
-            Get Started
+            Try Out Our Demo
           </Button>
         </Link>
       </Box>

@@ -2,6 +2,7 @@ import { Box, Button, CircularProgress, Typography } from '@mui/material'
 import axios from 'axios'
 import React, { ChangeEvent, useState } from 'react'
 
+import uploadImagePageWallpaper from '../assets/wallpaper.jpg'
 import AppDishInfo from '../components/AppDishInfo'
 import AppSnackBar from '../components/AppSnackBar'
 import { Colors } from '../theme/colors'
@@ -63,8 +64,11 @@ const UploadImagePage: React.FC = () => {
         alignItems: 'center',
         height: '100vh',
         justifyContent: 'space-between',
-        marginLeft: 40,
-        marginRight: 40,
+        paddingLeft: 40,
+        paddingRight: 40,
+        backgroundImage: `url(${uploadImagePageWallpaper})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
       <Box
@@ -74,7 +78,9 @@ const UploadImagePage: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h2">Give it a try</Typography>
+        <Typography variant="h2" sx={{ color: Colors.textWhite }}>
+          Give it a try
+        </Typography>
         <input
           type="file"
           onChange={handleFileChange}
@@ -84,27 +90,67 @@ const UploadImagePage: React.FC = () => {
         <label
           htmlFor="upload-file"
           style={{
-            border: `2px dashed ${Colors.boxShadowPrimary}`,
+            border: `2px dashed ${Colors.borderColorPrimary}`,
             minWidth: '750px',
             height: '250px',
             textAlign: 'center',
+            display: 'flex',
+            alignItems: 'center',
             justifyContent: 'center',
-            justifyItems: 'center',
           }}
         >
           {selectedFile ? (
             <img
               src={previewImage}
               alt="Preview"
-              style={{ maxWidth: '100%', maxHeight: '200px' }}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'cover',
+              }}
             />
           ) : (
-            <Typography>Drag & Drop or Click Here to Upload</Typography>
+            <Typography sx={{ color: Colors.textWhite }}>
+              Drag & Drop or Click Here to Upload
+            </Typography>
           )}
         </label>
-        <Button variant="contained" onClick={handleSubmit}>
+        <Button
+          onClick={handleSubmit}
+          sx={{
+            marginTop: '20px',
+            border: `1px solid ${Colors.borderColorPrimary}`,
+            fontWeight: 'bold',
+            color: Colors.info,
+          }}
+        >
           Search
         </Button>
+        <Typography
+          variant="h6"
+          sx={{ color: Colors.textWhite, marginTop: '100px' }}
+        >
+          Find your Dish out of 101 different categories
+        </Typography>
+        <Typography
+          sx={{
+            color: Colors.textWhite,
+            fontSize: '12px',
+            justifyContent: 'center',
+            textAlign: 'center',
+          }}
+        >
+          Apple pie, Baby back ribs, Baklava, Beef carpaccio, Beef tartare, Beet
+          salad, Beignets, Bibimbap, Bread pudding, Breakfast burrito,
+          Bruschetta, Caesar salad, Cannoli, Caprese salad, Carrot cake,
+          Ceviche, Cheesecake, Cheese plate, Chicken curry, Chicken quesadilla,
+          Chicken wings, Chocolate cake, Chocolate mousse, Churros, Clam
+          chowder, Club sandwich, Crab cakes, Creme brulee, Croque madame,
+          Cupcakes, Deviled eggs, Donuts, Dumplings, Edamame, Eggs benedict,
+          Escargots, Falafel, Filet mignon, Fish and chips, Foie gras, French
+          fries, French onion soup, French toast, Fried calamari, Fried rice,
+          Frozen yogurt, Garlic bread, Gnocchi etc...
+        </Typography>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {loading ? (
