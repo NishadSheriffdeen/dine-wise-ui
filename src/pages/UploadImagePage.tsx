@@ -78,7 +78,10 @@ const UploadImagePage: React.FC = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h2" sx={{ color: Colors.textWhite }}>
+        <Typography
+          variant="h2"
+          sx={{ color: Colors.textWhite, marginBottom: '20px' }}
+        >
           Give it a try
         </Typography>
         <input

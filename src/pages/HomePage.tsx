@@ -59,6 +59,23 @@ function HomePage() {
             Try Out Our Demo
           </Button>
         </Link>
+        <Box
+          sx={{
+            justifyContent: 'center',
+            display: 'flex',
+            textAlign: 'center',
+            minWidth: '100%',
+          }}
+        >
+          <Link to="/contactUs" style={{ textDecoration: 'none' }}>
+            <Typography
+              variant="body1"
+              sx={{ color: Colors.info, marginTop: '10px' }}
+            >
+              Contact Us
+            </Typography>
+          </Link>
+        </Box>
       </Box>
     </Box>
   )
